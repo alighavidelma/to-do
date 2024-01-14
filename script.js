@@ -18,3 +18,31 @@ list.addEventListener("click", (e) => {
   }
 });
 //end of delete
+
+// start of add
+function createListItem(inputValue) {
+  let item = document.createElement("li");
+  item.className = "to-do-item";
+  let title = document.createElement("span");
+  title.className = "title";
+  title.innerText = inputValue;
+  let btn = document.createElement("span");
+  btn.className = "delete";
+  btn.innerText = "delete";
+  item.appendChild(title);
+  item.appendChild(btn);
+  return item;
+}
+
+addBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (document.querySelector("#listEmpty")) {
+    document.querySelector("#listEmpty").remove();
+  }
+  if (!addInput.value) {
+    return;
+  }
+  list.appendChild(createListItem(addInput.value));
+  addInput.value = "";
+});
+//end of add
