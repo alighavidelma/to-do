@@ -46,3 +46,23 @@ addBtn.addEventListener("click", (e) => {
   addInput.value = "";
 });
 //end of add
+
+//start of search
+searchInput.addEventListener("input", (e) => {
+  Array.from(list.children).map((element) => {
+    if (document.querySelector("#listEmpty")) {
+      return;
+    }
+    if (
+      element
+        .querySelector(".title")
+        .innerText.toLowerCase()
+        .includes(e.target.value.toLowerCase())
+    ) {
+      element.style.display = "flex";
+    } else {
+      element.style.display = "none";
+    }
+  });
+});
+//end of search
